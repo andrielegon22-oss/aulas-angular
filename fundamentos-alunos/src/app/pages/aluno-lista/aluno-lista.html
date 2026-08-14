@@ -1,0 +1,46 @@
+<div class="aluno-lista">
+  <button (click)="verTabela()">Tabela</button>
+  <br />
+  <button (click)="verCards()">Cards</button>
+  <br />
+
+  <div class="cabecalho">
+    <h2>Lista de alunos</h2>
+  </div>
+
+  @if (listaAlunos.length === 0) {
+    <p>Nenhum registro de alunos encontrado no banco.</p>
+  } @else {
+    @if (modoExibicao === 'cards') {
+      <div class="lista-cards">
+        @for (objetoAluno of listaAlunos; track $index) {
+          <app-aluno-card [aluno]="objetoAluno"></app-aluno-card>
+        }
+      </div>
+    }
+  }
+  @if (modoExibicao === 'tabela') {
+    <div class="lista-tabela">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Nota</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (aluno of listaAlunos; track $index) {
+            <tr>
+              <td>{{ aluno.nome }}</td>
+              <td>{{ aluno.email }}</td>
+              <td>{{ aluno.notaFinal }}</td>
+              <td>{{ aluno.notaFinal >= 7 ? 'Aprovado' : 'Reprovado' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

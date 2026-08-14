@@ -1,0 +1,28 @@
+.principal {
+    height: 100vh;
+}
+
+.cabecalho {
+    background-color: #f62f50;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 16px;
+}
+
+h3, a {
+    color: #fff;
+}
+
+.menu {
+    display: flex;
+    gap: 16px;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu a:hover {
+    border-bottom: #8010b8 5px solid;
+}
+
